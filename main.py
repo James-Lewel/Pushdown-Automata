@@ -1,6 +1,6 @@
 import palindrome as palindrome
 import brackets as brackets
-import re
+import os
 
 def main():
     userInput = input("1 - Palindrome\n"
@@ -11,6 +11,8 @@ def main():
         palindrome.start()
     elif userInput == '2':
         brackets.start()
+    
+    os.system('pause')
     
     
 if __name__ == "__main__":
