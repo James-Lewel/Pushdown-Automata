@@ -7,9 +7,9 @@ def main():
                       "2 - Brackets\n"
                       "Enter : ")
     
-    if userInput == "1":
+    if userInput == '1':
         palindrome.start()
-    elif userInput == "2":
+    elif userInput == '2':
         brackets.start()
     
     
