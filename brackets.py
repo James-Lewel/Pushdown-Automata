@@ -1,5 +1,6 @@
 from stack import Stack
 
+# Initialize stack
 stack = Stack()
 stack.__init__()
 
@@ -8,12 +9,16 @@ openingBrackets = ['(', '{', '[']
 closingBrackets = [')', '}', ']']
 
 def start():
-    userInput = input("\nStarting brackets\n"
-                      "Enter string : ")
+    userInput = input("\nEnter string : ")
     
+    # Removes whitespace
+    userInput = userInput.replace(' ', '')
+
+    # Checks if condition matches
     isBalance = checkBalance(userInput)
     isBracket = checkBrackets(userInput)
     
+    # Prints output
     if isBalance is True and isBracket is True:
         print("Brackets are balance!")
         
@@ -23,7 +28,6 @@ def start():
     else:
         print("Input is not a bracket!")
         
-
 # Checks if input is balance
 def checkBalance(userInput):
     for bracket in userInput:
@@ -33,8 +37,9 @@ def checkBalance(userInput):
             if stack.is_empty() is True:
                 return False
             
-            tempBracket = stack.top()
+            tempBracket = stack.pop()
             
+            # Checks in bracket match with closing
             if tempBracket == '(':
                 if bracket != ')':
                     return False
@@ -47,7 +52,7 @@ def checkBalance(userInput):
                 
     return True if stack.is_empty() else False
 
-# Checks if input is bracket
+# Checks if input is a bracket
 def checkBrackets(userInput):
     for bracket in userInput:
         if bracket not in openingBrackets:
